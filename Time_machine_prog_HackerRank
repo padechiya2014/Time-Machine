@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class Solution {
+
+    static string solve(int year){
+        String result = string.Empty;
+     
+       if(year <= 1917){
+         
+            result = JulianCalCalc(year);
+           
+       }
+        else if(year >= 1919){
+             result = GregorianCalCalc(year);
+        }
+        else if(year == 1918){
+             result = CalcForYear1918(year);
+        }
+        
+        return result;
+    }
+    
+    static String JulianCalCalc(int year){
+        if(year%4 == 0){    
+            return "12.09."+year;
+        }
+        else return "13.09."+year;
+    }
+    static String GregorianCalCalc(int year){
+        if((year%400 == 0) || (year % 4 == 0 && year%100 != 0)){
+             return "12.09."+year;
+        }
+        else  return "13.09."+year;
+    }
+    
+    static String CalcForYear1918(int year){
+         return "31.10.1918";
+    }
+
+    static void Main(String[] args) {
+        int year = Convert.ToInt32(Console.ReadLine());
+        string result = solve(year);
+        Console.WriteLine(result);
+    }
+}
