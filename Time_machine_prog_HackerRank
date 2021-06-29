@@ -36,7 +36,7 @@ class Solution {
     }
     
     static String CalcForYear1918(int year){
-         return "31.10.1918";
+         return "26.09.1918";
     }
 
     static void Main(String[] args) {
